@@ -2,12 +2,11 @@ FROM n8nio/n8n:latest
 
 USER root
 
-RUN apt-get update && apt-get install -y \
+RUN apk add --no-cache \
     ffmpeg \
     fontconfig \
     wget \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
+    curl
 
 RUN mkdir -p /usr/share/fonts/montserrat && \
     wget -q "https://github.com/google/fonts/raw/main/ofl/montserrat/Montserrat-ExtraBold.ttf" \
